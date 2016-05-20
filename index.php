@@ -1,5 +1,5 @@
-<?php
-  require 'login.php';
+﻿<?php
+  require 'script\login.php';
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +29,19 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+	<?php
+	session_start ();
+	
+	if ($_SERVER ["REQUEST_METHOD"] == "POST") {
+		if (isset ( $_POST ['login'] )) {
+			authenticate ();
+		}
+	}
+	
+	redirectUser ();
+	?>
+
 
 </head>
 <body>
